@@ -1,449 +1,253 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Elhashimi | Co-Founder at Team-x</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Mohamed Elhashimi | Customer Education & Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        :root {
+            --bg-dark: #0a192f;
+            --card-bg: #112240;
+            --accent: #64ffda;
+            --text-main: #e6f1ff;
+            --text-dim: #8892b0;
+            --border: rgba(255, 255, 255, 0.1);
         }
-        .light .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 10px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        p.hero-text {
+            color: var(--text-dim);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0a192f;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        /* Image Card Section */
+        .vector-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+<body>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 glass border-b border-slate-800/50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center font-bold text-white shadow-lg shadow-emerald-500/20">
-                    ME
-                </div>
-                <div>
-                    <span class="font-bold text-lg tracking-tight block leading-tight">Mohamed Elhashimi</span>
-                    <span class="text-xs text-slate-400 font-medium">Co-Founder @ Team-x</span>
-                </div>
+    <header>
+        <div class="logo-box">
+            <div class="avatar">ME</div>
+            <div>
+                <strong style="display:block; font-size: 0.95rem;">Mohamed Elhashimi</strong>
+                <span style="font-size: 0.75rem; color: var(--text-dim);">Co-Founder @ Team-x</span>
             </div>
-
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#hero" class="hover:text-emerald-400 transition-colors">Home</a>
-                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
-                <a href="#education" class="hover:text-emerald-400 transition-colors">Educational Hub</a>
-                <a href="#resources" class="hover:text-emerald-400 transition-colors">Resources</a>
-                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
-            </nav>
-
-            <div class="flex items-center space-x-4">
-                <!-- Theme Toggle Button -->
-                <button id="themeToggle" class="p-2.5 rounded-xl glass hover:bg-slate-800 transition-all text-slate-300 hover:text-white" title="Toggle Theme">
-                    <i data-lucide="sun" id="sunIcon" class="w-5 h-5 hidden"></i>
-                    <i data-lucide="moon" id="moonIcon" class="w-5 h-5"></i>
-                </button>
-
-                <!-- CTA Button -->
-                <a href="#contact" class="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white font-medium text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95">
-                    <span>Get in Touch</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-slate-800/50 bg-slate-900/95">
-            <a href="#hero" class="block py-2 text-sm font-medium text-slate-300 hover:text-emerald-400">Home</a>
-            <a href="#about" class="block py-2 text-sm font-medium text-slate-300 hover:text-emerald-400">About</a>
-            <a href="#education" class="block py-2 text-sm font-medium text-slate-300 hover:text-emerald-400">Educational Hub</a>
-            <a href="#resources" class="block py-2 text-sm font-medium text-slate-300 hover:text-emerald-400">Resources</a>
-            <a href="#contact" class="block py-2 text-sm font-medium text-slate-300 hover:text-emerald-400">Contact</a>
         </div>
     </header>
 
-    <main class="flex-grow">
-        <!-- 1. HERO SECTION -->
-        <section id="hero" class="relative py-20 lg:py-32 overflow-hidden">
-            <!-- Background Vector-like Shapes -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-3xl -z-10"></div>
-            <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+    <div class="container">
+        <section class="hero">
+            <div class="badge">✨ EMPOWERING TEAMS & CUSTOMERS</div>
+            <h1>Educating users to build <span>better digital products.</span></h1>
+            <p class="hero-text">
+                Hi, I'm Mohamed Elhashimi, Co-Founder at Team-x. I create intuitive guides, actionable frameworks, and educational content to help businesses level up their digital strategy.
+            </p>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                            <span>Empowering Teams & Customers</span>
-                        </div>
-                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-                            Educating users to build <span class="gradient-text">better digital products.</span>
-                        </h1>
-                        <p class="text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal">
-                            Hi, I'm Mohamed Elhashimi, Co-Founder at Team-x. I create intuitive guides, actionable frameworks, and educational content to help businesses level up their digital strategy.
-                        </p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                            <a href="#education" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
-                                <span>Explore Knowledge Base</span>
-                                <i data-lucide="book-open" class="w-4 h-4"></i>
-                            </a>
-                            <a href="#about" class="w-full sm:w-auto px-6 py-3.5 rounded-xl glass hover:bg-slate-800 text-slate-300 font-semibold text-sm transition-all flex items-center justify-center space-x-2">
-                                <span>About Team-x</span>
-                                <i data-lucide="users" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
+            <div class="btn-group">
+                <a href="#resources" class="btn btn-primary">Explore Knowledge Base 📖</a>
+                <a href="#about" class="btn btn-secondary">About Team-x 👥</a>
+            </div>
 
-                    <!-- Hero Visual Card (Vector Style Illustration Layout) -->
-                    <div class="lg:col-span-5 flex justify-center">
-                        <div class="relative w-full max-w-md p-6 glass rounded-3xl shadow-2xl border border-slate-800">
-                            <div class="aspect-square rounded-2xl bg-slate-900 overflow-hidden relative border border-slate-800/80 flex flex-col justify-between p-6">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex space-x-2">
-                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                                    </div>
-                                    <span class="text-xs font-mono text-slate-500">vector_asset.ai</span>
-                                </div>
-                                <div class="space-y-4 my-auto">
-                                    <!-- Dynamic SVG Illustration SVG Vector -->
-                                    <svg class="w-full h-40 text-emerald-400 mx-auto" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="20" y="20" width="160" height="80" rx="10" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
-                                        <circle cx="100" cy="60" r="25" fill="#10b981" fill-opacity="0.2" stroke="currentColor" stroke-width="2" />
-                                        <path d="M70 90 L130 90" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
-                                        <path d="M85 45 L115 75" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <div class="text-center">
-                                        <p class="text-sm font-semibold text-slate-200">Customer Education Architecture</p>
-                                        <p class="text-xs text-slate-500">Optimized for Vector & Illustrator Workflows</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-800">
-                                    <span>Status: Active</span>
-                                    <span class="text-emerald-400 font-medium">Ready for Deployment</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- UPDATED IMAGE CARD -->
+            <div class="vector-card">
+                <div style="font-family: monospace; font-size: 0.8rem; color: var(--accent);">vector_asset.ai</div>
+                
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Education and Strategy">
                 </div>
+
+                <h3 style="margin-top: 0.5rem;">Customer Education Architecture</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Optimized for Vector & Illustrator Workflows</p>
             </div>
         </section>
 
-        <!-- 2. ABOUT SECTION -->
-        <section id="about" class="py-20 border-t border-slate-900 bg-slate-900/30">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto text-center space-y-4">
-                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Co-Founder & Mentor</span>
-                    <h2 class="text-3xl font-bold">About Mohamed Elhashimi</h2>
-                    <p class="text-slate-400">
-                        At <span class="text-white font-semibold">Team-x</span>, we believe that informed clients make better decisions. My mission is to bridge the gap between technical complexity and user understanding through simple, intuitive customer education modules.
-                    </p>
+        <section id="resources" style="margin-top: 4rem;">
+            <h2 style="font-size: 1.5rem; text-align: center; margin-bottom: 1.5rem;">Educational Modules</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>01. Onboarding Frameworks</h3>
+                    <p>Structured guides designed to turn new users into power customers effortlessly.</p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <div class="p-6 rounded-2xl glass space-y-3">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
-                            <i data-lucide="layers" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold">Structured Modules</h3>
-                        <p class="text-sm text-slate-400">Step-by-step guides tailored for users to master modern tools effortlessly.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl glass space-y-3">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-                            <i data-lucide="layout" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold">Design Integration</h3>
-                        <p class="text-sm text-slate-400">Seamless translation of Adobe Illustrator mockups and visual designs into digital products.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl glass space-y-3">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                            <i data-lucide="zap" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold">Fast Execution</h3>
-                        <p class="text-sm text-slate-400">Rapid deployment and turnarounds designed for high-growth tech initiatives.</p>
-                    </div>
+                <div class="card">
+                    <h3>02. Design Systems</h3>
+                    <p>Seamlessly integrate Illustrator and vector graphics into developer-ready components.</p>
+                </div>
+                <div class="card">
+                    <h3>03. Product Knowledge</h3>
+                    <p>Bite-sized visual documentation tailored for modern SaaS and tech platforms.</p>
                 </div>
             </div>
         </section>
-
-        <!-- 3. EDUCATIONAL HUB & RESOURCES (Interactive Search & Filter) -->
-        <section id="education" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Learn & Grow</span>
-                        <h2 class="text-3xl font-bold mt-1">Customer Education Hub</h2>
-                        <p class="text-slate-400 text-sm mt-1">Browse through guides, video tutorials, and interactive walkthroughs.</p>
-                    </div>
-
-                    <!-- Search and Filter Tools -->
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <!-- Search Box -->
-                        <div class="relative">
-                            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                            <input type="text" id="searchInput" placeholder="Search guides or topics..." class="pl-10 pr-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500 text-slate-200 w-full sm:w-64">
-                        </div>
-
-                        <!-- Filter Buttons -->
-                        <div class="flex bg-slate-900 p-1 rounded-xl border border-slate-800" id="filterContainer">
-                            <button data-filter="all" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-500 text-slate-950 transition-all">All</button>
-                            <button data-filter="guides" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all">Guides</button>
-                            <button data-filter="videos" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all">Videos</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="resourceGrid">
-                    <!-- Card 1 -->
-                    <div class="resource-card glass rounded-2xl p-6 hover:border-emerald-500/50 transition-all group flex flex-col justify-between" data-category="guides" data-title="getting started with team-x platform">
-                        <div>
-                            <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
-                                <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 font-medium">Guide</span>
-                                <span>5 min read</span>
-                            </div>
-                            <h3 class="text-lg font-bold group-hover:text-emerald-400 transition-colors">Getting Started with Team-x Platform</h3>
-                            <p class="text-sm text-slate-400 mt-2">A complete walkthrough of our main suite to onboard your team effectively.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs font-medium text-emerald-400">
-                            <span>Read Guide</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="resource-card glass rounded-2xl p-6 hover:border-emerald-500/50 transition-all group flex flex-col justify-between" data-category="videos" data-title="adobe illustrator design handoff video">
-                        <div>
-                            <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
-                                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 font-medium">Video</span>
-                                <span>12 mins</span>
-                            </div>
-                            <h3 class="text-lg font-bold group-hover:text-emerald-400 transition-colors">Adobe Illustrator Design Handoff</h3>
-                            <p class="text-sm text-slate-400 mt-2">Learn how we turn vector Illustrator designs into pixel-perfect code layouts.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs font-medium text-emerald-400">
-                            <span>Watch Video</span>
-                            <i data-lucide="play" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="resource-card glass rounded-2xl p-6 hover:border-emerald-500/50 transition-all group flex flex-col justify-between" data-category="guides" data-title="customer education strategy playbook">
-                        <div>
-                            <div class="flex items-center justify-between text-xs text-slate-500 mb-3">
-                                <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 font-medium">Guide</span>
-                                <span>8 min read</span>
-                            </div>
-                            <h3 class="text-lg font-bold group-hover:text-emerald-400 transition-colors">Customer Education Playbook</h3>
-                            <p class="text-sm text-slate-400 mt-2">Strategies for reducing user churn through clear educational materials.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs font-medium text-emerald-400">
-                            <span>Read Guide</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. RESOURCES / DOWNLOADS SECTION -->
-        <section id="resources" class="py-16 bg-slate-900/40 border-t border-slate-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="glass rounded-3xl p-8 lg:p-12 relative overflow-hidden">
-                    <div class="relative z-10 max-w-2xl space-y-4">
-                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Downloadable Assets</span>
-                        <h2 class="text-2xl sm:text-3xl font-bold">Need design templates or guidelines?</h2>
-                        <p class="text-slate-400 text-sm">Access Mohamed's curated list of client onboarding templates and design asset specifications ready for download.</p>
-                        <div class="pt-2 flex flex-wrap gap-4">
-                            <button onclick="showMessage('Downloading PDF Framework...')" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold flex items-center space-x-2 border border-slate-700">
-                                <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>
-                                <span>Client Toolkit (.PDF)</span>
-                            </button>
-                            <button onclick="showMessage('Downloading Vector Template...')" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold flex items-center space-x-2 border border-slate-700">
-                                <i data-lucide="image" class="w-4 h-4 text-blue-400"></i>
-                                <span>Illustrator Specs (.AI)</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. CONTACT SECTION -->
-        <section id="contact" class="py-20">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Let's Connect</span>
-                    <h2 class="text-3xl font-bold mt-2">Get in Touch with Mohamed</h2>
-                    <p class="text-slate-400 text-sm mt-2">Have questions about Team-x or custom educational modules?</p>
-                </div>
-
-                <form id="contactForm" class="glass p-8 rounded-3xl space-y-4 text-left border border-slate-800">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-1">Your Name</label>
-                            <input type="text" required placeholder="Name" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-slate-100 focus:outline-none focus:border-emerald-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-1">Your Email</label>
-                            <input type="email" required placeholder="email@example.com" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-slate-100 focus:outline-none focus:border-emerald-500">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-slate-400 mb-1">Message</label>
-                        <textarea rows="4" required placeholder="How can I help you?" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/20">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-500">
-        <p>© 2026 Mohamed Elhashimi • Co-Founder at Team-x. All rights reserved.</p>
-    </footer>
-
-    <!-- Toast Notification Message Box -->
-    <div id="toast" class="fixed bottom-5 right-5 hidden glass border border-emerald-500/40 text-emerald-400 px-5 py-3 rounded-2xl shadow-xl text-sm flex items-center space-x-2 z-50">
-        <i data-lucide="check-circle" class="w-4 h-4"></i>
-        <span id="toastMsg">Action completed!</span>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+    <footer>
+        <p>© 2026 Mohamed Elhashimi • Built for Team-x Customer Education</p>
+    </footer>
 
-        <!-- Theme Toggle Logic -->
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const html = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            }
-        });
-
-        <!-- Mobile Navigation Menu Toggle -->
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        <!-- Interactive Search & Filtering -->
-        const searchInput = document.getElementById('searchInput');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const resourceCards = document.querySelectorAll('.resource-card');
-
-        let currentFilter = 'all';
-
-        function filterResources() {
-            const query = searchInput.value.toLowerCase().trim();
-
-            resourceCards.forEach(card => {
-                const title = card.getAttribute('data-title');
-                const category = card.getAttribute('data-category');
-
-                const matchesSearch = title.includes(query);
-                const matchesFilter = currentFilter === 'all' || category === currentFilter;
-
-                if (matchesSearch && matchesFilter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-
-        searchInput.addEventListener('input', filterResources);
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-emerald-500', 'text-slate-950');
-                    b.classList.add('text-slate-400');
-                });
-                btn.classList.add('bg-emerald-500', 'text-slate-950');
-                btn.classList.remove('text-slate-400');
-
-                currentFilter = btn.getAttribute('data-filter');
-                filterResources();
-            });
-        });
-
-        <!-- Contact Form Handling -->
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            showMessage('Thank you! Your message has been sent to Mohamed.');
-            e.target.reset();
-        });
-
-        <!-- Custom Toast Notification Function -->
-        function showMessage(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMsg');
-            toastMsg.textContent = msg;
-            toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 3000);
-        }
-    </script>
 </body>
 </html>
